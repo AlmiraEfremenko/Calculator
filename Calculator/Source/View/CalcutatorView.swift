@@ -9,7 +9,7 @@ import UIKit
 
 class CalculatorView: UIStackView {
 
-    var parentStackView = [UIStackView]()
+    private var parentStackView = [UIStackView]()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,7 +21,7 @@ class CalculatorView: UIStackView {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func configure() {
         axis = .vertical
         spacing = 1
