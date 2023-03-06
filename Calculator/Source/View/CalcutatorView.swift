@@ -7,15 +7,22 @@
 
 import UIKit
 
+protocol CalculatorViewProtocol: AnyObject {
+    func tapNumberButton(tag: Int)
+    func tapActionButton(tag: Int)
+}
+
 class CalculatorView: UIStackView {
 
     var parentStackView = [UIStackView]()
+
+    weak var delegate: CalculatorViewProtocol?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCalculatorStackView()
         configure()
-        parentStackView.forEach{addArrangedSubview($0)}
+        parentStackView.forEach{ addArrangedSubview($0) }
     }
 
     required init(coder: NSCoder) {
@@ -41,8 +48,8 @@ class CalculatorView: UIStackView {
         return button
     }
 
-    @objc private func tapButton() {
-
+    @objc private func tapButton(sender: UIButton) {
+        sender.tag < 10 ? delegate?.tapNumberButton(tag: sender.tag) : delegate?.tapActionButton(tag: sender.tag)
     }
 
     private func setupCalculatorStackView() {
@@ -64,14 +71,14 @@ class CalculatorView: UIStackView {
 
         let buttonFour = createButton(title: "4", tag: 4, color: .gray)
         let buttonFive = createButton(title: "5", tag: 5, color: .gray)
-        let buttonSix = createButton(title: "6", tag: 5, color: .gray)
+        let buttonSix = createButton(title: "6", tag: 6, color: .gray)
         let buttonMinus = createButton(title: "-", tag: 13, color: .orange)
 
         let thirdStackView = UIStackView(views: [buttonFour, buttonFive, buttonSix, buttonMinus])
 
         let buttonSeven = createButton(title: "7", tag: 7, color: .gray)
-        let buttonEight = createButton(title: "5", tag: 5, color: .gray)
-        let buttonNine = createButton(title: "6", tag: 5, color: .gray)
+        let buttonEight = createButton(title: "8", tag: 8, color: .gray)
+        let buttonNine = createButton(title: "9", tag: 9, color: .gray)
         let buttonMultiply = createButton(title: "X", tag: 14, color: .orange)
 
         let fourStackView = UIStackView(views: [buttonSeven, buttonEight, buttonNine, buttonMultiply])
