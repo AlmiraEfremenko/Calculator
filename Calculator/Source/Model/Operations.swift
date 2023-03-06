@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+enum Operations {
+    case noAction
+    case addition
+    case substraction
+    case multiplication
+    case division
+}
