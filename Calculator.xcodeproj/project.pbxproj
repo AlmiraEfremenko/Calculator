@@ -16,6 +16,8 @@
 		043FFB87297D44170007BE37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043FFB85297D44170007BE37 /* LaunchScreen.storyboard */; };
 		043FFB94297D46BB0007BE37 /* CalcutatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FFB93297D46BB0007BE37 /* CalcutatorView.swift */; };
 		043FFB97297D5EF30007BE37 /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FFB96297D5EF30007BE37 /* UIStackView+Ext.swift */; };
+		04EDD26529CB285300002710 /* Double + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD26429CB285300002710 /* Double + Ext.swift */; };
+		04EDD26729CB286100002710 /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD26629CB286100002710 /* String + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		043FFB88297D44170007BE37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043FFB93297D46BB0007BE37 /* CalcutatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcutatorView.swift; sourceTree = "<group>"; };
 		043FFB96297D5EF30007BE37 /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
+		04EDD26429CB285300002710 /* Double + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + Ext.swift"; sourceTree = "<group>"; };
+		04EDD26629CB286100002710 /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 		043FFB92297D45C60007BE37 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				04EDD26329CB284100002710 /* Extensions */,
 				043FFB95297D5EE30007BE37 /* UIKit */,
 				043FFB8E297D45860007BE37 /* App */,
 				040F97F629B4B445008043E7 /* Model */,
@@ -130,6 +135,15 @@
 				043FFB96297D5EF30007BE37 /* UIStackView+Ext.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		04EDD26329CB284100002710 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04EDD26429CB285300002710 /* Double + Ext.swift */,
+				04EDD26629CB286100002710 /* String + Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,10 +216,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04EDD26729CB286100002710 /* String + Ext.swift in Sources */,
 				043FFB94297D46BB0007BE37 /* CalcutatorView.swift in Sources */,
 				043FFB97297D5EF30007BE37 /* UIStackView+Ext.swift in Sources */,
 				040F97FB29B4D00F008043E7 /* CalculationModel.swift in Sources */,
 				043FFB7F297D44160007BE37 /* CalculatorViewController.swift in Sources */,
+				04EDD26529CB285300002710 /* Double + Ext.swift in Sources */,
 				040F97F929B4B466008043E7 /* Operations.swift in Sources */,
 				043FFB7B297D44160007BE37 /* AppDelegate.swift in Sources */,
 				043FFB7D297D44160007BE37 /* SceneDelegate.swift in Sources */,

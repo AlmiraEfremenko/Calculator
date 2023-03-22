@@ -27,7 +27,7 @@ class CalculationModel {
     }
 
     public func getCurrentNumber() -> String {
-        return currentNumber
+        return currentNumber.stringWithPoint
     }
 
     //MARK: функция настройки операции, если мы можем получить число из currentNumber то это число мы записываем в firstNumber, обнуляем currentNumber и currentOperation = operation(операции - + = * /)
@@ -43,7 +43,7 @@ class CalculationModel {
         }
         currentNumber = ""
         currentOperation = operation
-        return String(firstNumber)
+        return firstNumber.stringWithoutZeroFraction.stringWithPoint
     }
 
     public func getResult() -> String {
@@ -52,25 +52,26 @@ class CalculationModel {
         guard let number = Double(currentNumber) else { return "" }
         secondNumber = number
 
+        var result = 0.0
         switch currentOperation {
 
         case .noAction:
-            print("noAction")
-            return ""
+            return currentNumber
         case .addition:
-            return String(firstNumber + secondNumber)
+            result = firstNumber + secondNumber
         case .substraction:
-            return String(firstNumber - secondNumber)
+            result = firstNumber - secondNumber
         case .multiplication:
-            return String(firstNumber * secondNumber)
+            result = firstNumber * secondNumber
         case .division:
 
             if secondNumber == 0 {
                 return "Не определено"
             } else {
-                return String(firstNumber / secondNumber)
+                result = firstNumber / secondNumber
             }
         }
+        return result.stringWithoutZeroFraction.stringWithPoint
     }
 
     // Сброс значений
@@ -82,18 +83,26 @@ class CalculationModel {
     }
 
     public func invertValue() {
-        guard let number = Double(currentNumber) else { return }
+        guard let number = Double(currentNumber) else {
+            currentNumber = "0"
+            return }
 
-        if number > 0 {
-            currentNumber.insert("-", at: currentNumber.startIndex)
-        } else {
+        switch number {
+        case ..<0:
             currentNumber.remove(at: currentNumber.startIndex)
+        case 0: break
+        case 0...:
+            currentNumber.insert("-", at: currentNumber.startIndex)
+        default:
+            print("error")
         }
     }
 
     public func addPointValue() {
 
-        currentNumber += currentNumber != "" ? "." : "0."
+        if !currentNumber.contains(".") {
+            currentNumber += currentNumber != "" ? "." : "0."
+        }
     }
 
     public func setPercent() {
